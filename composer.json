@@ -34,6 +34,7 @@
         "hyperf/framework": "2.2.*",
         "hyperf/guzzle": "2.2.*",
         "hyperf/http-server": "2.2.*",
+        "hyperf/kafka": "2.2.*",
         "hyperf/logger": "2.2.*",
         "hyperf/model-cache": "2.2.*",
         "hyperf/pool": "2.2.*",
