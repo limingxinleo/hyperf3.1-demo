@@ -21,7 +21,7 @@ class MQTTConnectHandler implements HandlerInterface
 {
     public function handle(ServerRequestInterface $request, Response $response): Response
     {
-        var_dump((string) $response->getBody());
+        var_dump((string) $request->getBody());
         return $response;
     }
 }
