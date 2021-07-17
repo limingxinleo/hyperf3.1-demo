@@ -9,10 +9,15 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-use Hyperf\HttpServer\Router\Router;
+namespace App\Controller;
 
-Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController::index');
+use Hyperf\HttpServer\Annotation\AutoController;
 
-// Router::get('/foo/index', function () {
-//     return 'foo2';
-// });
+#[AutoController()]
+class FooController extends Controller
+{
+    public function index()
+    {
+        return $this->response->success('foo');
+    }
+}
