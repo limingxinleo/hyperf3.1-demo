@@ -11,10 +11,18 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Service\FooService;
+use Hyperf\Di\Annotation\Inject;
+
 class IndexController extends Controller
 {
+    #[Inject()]
+    protected FooService $service;
     public function index()
     {
+        $this->service->dump();
+        $this->service->dumpAsync();
+
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
         return $this->response->success([
