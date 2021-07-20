@@ -11,10 +11,17 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Service\FooService;
+use Hyperf\Di\Annotation\Inject;
+
 class IndexController extends Controller
 {
+    #[Inject()]
+    protected FooService $service;
+
     public function index()
     {
+        var_dump($this->service->getId());
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
         return $this->response->success([
