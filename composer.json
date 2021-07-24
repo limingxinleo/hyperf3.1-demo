@@ -39,6 +39,7 @@
         "hyperf/pool": "2.2.*",
         "hyperf/process": "2.2.*",
         "hyperf/redis": "2.2.*",
+        "hyperf/scan-manager-incubator": "^0.1",
         "hyperf/server": "2.2.*",
         "hyperf/utils": "2.2.*"
     },
