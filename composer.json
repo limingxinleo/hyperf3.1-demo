@@ -41,7 +41,8 @@
         "hyperf/process": "2.2.*",
         "hyperf/redis": "2.2.*",
         "hyperf/server": "2.2.*",
-        "hyperf/utils": "2.2.*"
+        "hyperf/utils": "2.2.*",
+        "limingxinleo/hyperf-utils": "^3.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
