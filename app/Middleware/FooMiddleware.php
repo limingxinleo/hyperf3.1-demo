@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace App\Middleware;
 
+use App\Kernel\Http\ResponseTrait;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -19,6 +20,8 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class FooMiddleware implements MiddlewareInterface
 {
+    use ResponseTrait;
+
     /**
      * @var ContainerInterface
      */
