@@ -11,12 +11,20 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Amqp\Producer\DebugProducer;
+use Hyperf\Amqp\Producer;
+use Hyperf\Di\Annotation\Inject;
+
 class IndexController extends Controller
 {
+    #[Inject()]
+    protected Producer $producer;
+
     public function index()
     {
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
+        $this->producer->produce(new DebugProducer(uniqid()));
         return $this->response->success([
             'user' => $user,
             'method' => $method,
