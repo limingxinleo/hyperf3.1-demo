@@ -10,6 +10,9 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    Hyperf\AsyncQueue\Process\ConsumerProcess::class,
-    Hyperf\Crontab\Process\CrontabDispatcherProcess::class,
+    'handlers' => [
+        // Hyperf\Signal\Handler\WorkerStopHandler::class => PHP_INT_MIN
+        Hyperf\Signal\Handler\CoroutineServerStopHandler::class,
+    ],
+    'timeout' => 5.0,
 ];

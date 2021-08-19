@@ -10,6 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    Hyperf\AsyncQueue\Process\ConsumerProcess::class,
-    Hyperf\Crontab\Process\CrontabDispatcherProcess::class,
+    'enable' => true,
+    'crontab' => [
+    ],
 ];
