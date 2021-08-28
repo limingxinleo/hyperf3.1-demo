@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Amqp\Producer\Debug2Producer;
+use App\Amqp\Producer\DelayDirectProducer;
+use Carbon\Carbon;
 use Hyperf\Amqp\Producer;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\AutoController;
@@ -28,6 +30,17 @@ class AmqpController extends Controller
         $key = $this->request->input('key', 'hyperf');
 
         $this->producer->produce(new Debug2Producer($exchange, $key, '123123'), true);
+        return $this->response->success();
+    }
+
+    public function delay()
+    {
+        $message = (new DelayDirectProducer(Carbon::now()->toDateTimeString()))->setDelayMs(
+            (int) $this->request->input('ms', 10000)
+        );
+
+        $this->producer->produce($message);
+
         return $this->response->success();
     }
 }
