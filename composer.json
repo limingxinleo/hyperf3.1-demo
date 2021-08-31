@@ -12,7 +12,7 @@
     "description": "A coroutine framework that focuses on hyperspeed and flexible, specifically use for build microservices and middlewares.",
     "license": "MIT",
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.0",
         "ext-json": "*",
         "ext-openssl": "*",
         "ext-pdo": "*",
@@ -36,6 +36,7 @@
         "hyperf/http-server": "2.2.*",
         "hyperf/logger": "2.2.*",
         "hyperf/model-cache": "2.2.*",
+        "hyperf/nats": "2.2.*",
         "hyperf/pool": "2.2.*",
         "hyperf/process": "2.2.*",
         "hyperf/redis": "2.2.*",
