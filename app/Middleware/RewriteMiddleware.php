@@ -22,14 +22,8 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class RewriteMiddleware implements MiddlewareInterface
 {
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
-    public function __construct(ContainerInterface $container)
+    public function __construct(protected ContainerInterface $container, protected bool $dump = false)
     {
-        $this->container = $container;
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
@@ -51,6 +45,10 @@ class RewriteMiddleware implements MiddlewareInterface
             $dispatched->handler->callback = [
                 IndexController::class, 'index',
             ];
+        }
+
+        if ($this->dump) {
+            dump($dispatched);
         }
 
         return $handler->handle($request);

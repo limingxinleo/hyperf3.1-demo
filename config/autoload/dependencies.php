@@ -13,4 +13,7 @@ return [
     Hyperf\Contract\StdoutLoggerInterface::class => App\Kernel\Log\LoggerFactory::class,
     Hyperf\Server\Listener\AfterWorkerStartListener::class => App\Kernel\Http\WorkerStartListener::class,
     Psr\EventDispatcher\EventDispatcherInterface::class => App\Kernel\Event\EventDispatcherFactory::class,
+    App\Middleware\RewriteMiddleware::class => function () {
+        return new App\Middleware\RewriteMiddleware(di(), true);
+    },
 ];
