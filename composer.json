@@ -27,6 +27,7 @@
         "hyperf/contract": "2.2.*",
         "hyperf/database": "2.2.*",
         "hyperf/db-connection": "2.2.*",
+        "hyperf/db-pgsql-incubator": "^0.2.0",
         "hyperf/di": "2.2.*",
         "hyperf/dispatcher": "2.2.*",
         "hyperf/event": "2.2.*",

@@ -5,7 +5,7 @@
 # @contact  group@hyperf.io
 # @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
 
-FROM hyperf/hyperf:8.0-alpine-v3.14-swoole
+FROM hyperf/hyperf:7.4-alpine-v3.12-swoole-v4.6.1
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
 
 ##
@@ -20,12 +20,16 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 
 # update
 RUN set -ex \
+    && apk add postgresql-dev \
+    && wget https://github.com/limingxinleo/php-ext-docker/releases/download/pgsql-v4.6.1/swoole_postgresql-7.4-alpine-v3.12.so -O /usr/lib/php7/modules/swoole_postgresql.so \
+    && echo "extension=swoole_postgresql.so" >> /etc/php7/conf.d/51_pgsql.ini \
     # show php version and extensions
     && php -v \
     && php -m \
     && php --ri swoole \
+    && php --ri swoole_postgresql \
     #  ---------- some config ----------
-    && cd /etc/php8 \
+    && cd /etc/php7 \
     # - config PHP
     && { \
         echo "upload_max_filesize=128M"; \
