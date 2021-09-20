@@ -51,3 +51,14 @@ if (! function_exists('queue_push')) {
         return $driver->push($job, $delay);
     }
 }
+
+if (! function_exists('is_win')) {
+    function is_win()
+    {
+        $userAgent = di()->get(\Psr\Http\Message\ServerRequestInterface::class)->getHeaderLine('user-agent');
+        if (str_contains(strtolower($userAgent), 'windows')) {
+            return true;
+        }
+        return false;
+    }
+}

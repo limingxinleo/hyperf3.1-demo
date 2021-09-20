@@ -11,15 +11,28 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Service\ExcelService;
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\AutoController;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 
 #[AutoController(prefix: 'http')]
 class HttpController extends Controller
 {
+    #[Inject]
+    protected ExcelService $excel;
+
     public function index()
     {
         return $this->response->success('Hello World')
             ->withAddedHeader('Test', uniqid())
             ->withAddedHeader('Test', uniqid());
+    }
+
+    public function excel(ResponseInterface $response)
+    {
+        return $response->download(
+            $this->excel->export()
+        );
     }
 }
