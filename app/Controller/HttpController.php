@@ -35,4 +35,11 @@ class HttpController extends Controller
             $this->excel->export()
         );
     }
+
+    public function incr()
+    {
+        return $this->response->success(
+            di()->get(\Swoole\Table::class)->incr('test', 'number', 1)
+        );
+    }
 }
