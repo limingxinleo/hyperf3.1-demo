@@ -29,7 +29,7 @@ class AmqpController extends Controller
         $exchange = $this->request->input('exchange', 'hyperf');
         $key = $this->request->input('key', 'hyperf');
 
-        $this->producer->produce(new Debug2Producer($exchange, $key, '123123'), true);
+        $this->producer->produce(new Debug2Producer($exchange, $key, uniqid()), false);
         return $this->response->success();
     }
 

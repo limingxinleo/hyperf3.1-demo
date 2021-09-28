@@ -17,7 +17,7 @@ use Hyperf\Amqp\Result;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * @Consumer(exchange="hyperf", routingKey="hyperf", queue="hyperf", name="DebugRPCConsumer", nums=1)
+ * @Consumer(exchange="hyperf", routingKey="hyperf", queue="hyperf.rpc", name="DebugRPCConsumer", nums=1)
  */
 class DebugRPCConsumer extends ConsumerMessage
 {
