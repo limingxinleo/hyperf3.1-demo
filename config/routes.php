@@ -13,6 +13,7 @@ use Hyperf\HttpServer\Router\Router;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController::index');
 
+// Router::get('/index.html', 'App\Controller\IndexController::index');
 // Router::get('/foo/index', function () {
 //     return 'foo2';
 // });
