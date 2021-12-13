@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 namespace App\Service;
 
+use App\Constants\ErrorCode;
+use App\Exception\BusinessException;
 use Han\Utils\Service;
 use Hyperf\Crontab\Annotation\Crontab;
 
@@ -20,5 +22,11 @@ class CrontabService extends Service
     public function foo()
     {
         var_dump('foo');
+    }
+
+    #[Crontab(name: 'failed', rule: '* * * * * *')]
+    public function failed()
+    {
+        throw new BusinessException(ErrorCode::SERVER_ERROR, 'Crontab 执行报错');
     }
 }
