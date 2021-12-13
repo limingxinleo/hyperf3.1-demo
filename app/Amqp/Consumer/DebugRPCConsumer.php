@@ -14,6 +14,7 @@ namespace App\Amqp\Consumer;
 use Hyperf\Amqp\Annotation\Consumer;
 use Hyperf\Amqp\Message\ConsumerMessage;
 use Hyperf\Amqp\Result;
+use Hyperf\Redis\Redis;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
@@ -24,6 +25,7 @@ class DebugRPCConsumer extends ConsumerMessage
     public function consumeMessage($data, AMQPMessage $message): string
     {
         var_dump($data);
+        di()->get(Redis::class)->incr('amqp:incr');
         return Result::ACK;
     }
 }

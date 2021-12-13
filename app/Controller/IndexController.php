@@ -24,7 +24,7 @@ class IndexController extends Controller
     {
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
-        $this->producer->produce(new DebugProducer(uniqid()));
+        $this->producer->produce(new DebugProducer(uniqid()), true);
         return $this->response->success([
             'user' => $user,
             'method' => $method,
