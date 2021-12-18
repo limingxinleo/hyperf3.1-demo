@@ -41,6 +41,7 @@
         "hyperf/process": "2.2.*",
         "hyperf/redis": "2.2.*",
         "hyperf/server": "2.2.*",
+        "hyperf/snowflake": "2.2.*",
         "hyperf/utils": "2.2.*"
     },
     "require-dev": {
