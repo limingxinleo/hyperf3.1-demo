@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Request\DebugRequest;
+use App\Request\RequiredRequest;
 use App\Request\SceneRequest;
 use Hyperf\HttpServer\Annotation\AutoController;
 
@@ -29,5 +30,12 @@ class FooController extends Controller
         $request->scene('foo')->validateResolved();
 
         return $this->response->success($request->all());
+    }
+
+    public function required(RequiredRequest $request)
+    {
+        return $this->response->success(
+            $request->all()
+        );
     }
 }

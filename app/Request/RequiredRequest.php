@@ -13,13 +13,8 @@ namespace App\Request;
 
 use Hyperf\Validation\Request\FormRequest;
 
-class SceneRequest extends FormRequest
+class RequiredRequest extends FormRequest
 {
-    protected array $scenes = [
-        'foo' => ['username'],
-        'bar' => ['username', 'password'],
-    ];
-
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -34,8 +29,7 @@ class SceneRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required',
-            'gender' => 'required',
+            'title' => 'required|max:30',
         ];
     }
 }
