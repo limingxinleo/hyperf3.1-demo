@@ -48,7 +48,7 @@ class RewriteMiddleware implements MiddlewareInterface
         }
 
         if ($this->dump) {
-            dump($dispatched);
+            var_dump($dispatched);
         }
 
         return $handler->handle($request);

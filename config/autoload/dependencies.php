@@ -14,6 +14,6 @@ return [
     Hyperf\Server\Listener\AfterWorkerStartListener::class => App\Kernel\Http\WorkerStartListener::class,
     Psr\EventDispatcher\EventDispatcherInterface::class => App\Kernel\Event\EventDispatcherFactory::class,
     App\Middleware\RewriteMiddleware::class => function () {
-        return new App\Middleware\RewriteMiddleware(di(), true);
+        return new App\Middleware\RewriteMiddleware(di(), false);
     },
 ];

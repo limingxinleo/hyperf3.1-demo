@@ -19,7 +19,6 @@ use Hyperf\Di\Annotation\AnnotationCollector;
 use Hyperf\Di\Annotation\MultipleAnnotation;
 use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Annotation\Middleware;
-use Hyperf\HttpServer\Annotation\Middlewares;
 
 #[AutoController()]
 class FooController extends Controller
@@ -28,13 +27,6 @@ class FooController extends Controller
     {
         return $this->response->success('foo');
     }
-
-    // /**
-    //  * @Middlewares(
-    //  *     @Middleware(FooMiddleware::class),
-    //  *     @Middleware(BarMiddleware::class)
-    //  * )
-    //  */
 
     #[Middleware(middleware: BarMiddleware::class)]
     #[Middleware(middleware: FooMiddleware::class)]
