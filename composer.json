@@ -36,6 +36,7 @@
         "hyperf/guzzle": "3.0.*",
         "hyperf/http-server": "3.0.*",
         "hyperf/logger": "3.0.*",
+        "hyperf/metric": " 3.0.*",
         "hyperf/model-cache": "3.0.*",
         "hyperf/pool": "3.0.*",
         "hyperf/process": "3.0.*",
