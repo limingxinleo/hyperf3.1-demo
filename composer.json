@@ -41,6 +41,7 @@
         "hyperf/process": "3.0.*",
         "hyperf/redis": "3.0.*",
         "hyperf/server": "3.0.*",
+        "hyperf/socketio-server": "3.0.*",
         "hyperf/utils": "3.0.*"
     },
     "require-dev": {
