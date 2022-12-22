@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
+namespace App\RPC;
+
+use Hyperf\RpcMultiplex\Constant;
+use Hyperf\RpcServer\Annotation\RpcService;
+
+#[RpcService(name: 'FooService', server: 'rpc', protocol: Constant::PROTOCOL_DEFAULT)]
+class FooService implements FooInterface
+{
+    public function getId(): int
+    {
+        return 1;
+    }
+
+    public function getName(): string
+    {
+        return 'Foo';
+    }
+}

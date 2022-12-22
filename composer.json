@@ -40,6 +40,7 @@
         "hyperf/pool": "3.0.*",
         "hyperf/process": "3.0.*",
         "hyperf/redis": "3.0.*",
+        "hyperf/rpc-multiplex": "3.0.*",
         "hyperf/server": "3.0.*",
         "hyperf/utils": "3.0.*"
     },
