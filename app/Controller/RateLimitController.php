@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\HttpServer\Annotation\Controller;
+use Hyperf\HttpServer\Annotation\PostMapping;
 use Hyperf\HttpServer\Annotation\RequestMapping;
 use Hyperf\RateLimit\Annotation\RateLimit;
 
@@ -30,5 +31,11 @@ class RateLimitController extends Controller
     public function test2()
     {
         return ['QPS 2, 峰值2'];
+    }
+
+    #[PostMapping(path: 'get')]
+    public function get()
+    {
+        return 'Hello World.';
     }
 }
