@@ -9,7 +9,11 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\Crontab\Crontab;
+
 return [
-    // Hyperf\AsyncQueue\Process\ConsumerProcess::class,
-    Hyperf\Crontab\Process\CrontabDispatcherProcess::class,
+    'enable' => true,
+    'crontab' => [
+        (new Crontab())->setName('Foo')->setRule('* * * * * *')->setCallback([App\Task\FooTask::class, 'execute'])->setMemo('这是一个示例的定时任务'),
+    ],
 ];
