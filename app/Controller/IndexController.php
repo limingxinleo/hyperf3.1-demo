@@ -15,12 +15,26 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
+        $client = new \App\Grpc\HiClient('127.0.0.1:9503', [
+            'credentials' => null,
+        ]);
+
+        $request = new \Grpc\HiUser();
+        $request->setName('hyperf');
+        $request->setSex(1);
+
+        /**
+         * @var \Grpc\HiReply $reply
+         */
+        [$reply, $status] = $client->sayHello($request);
+
+        var_dump($reply);
+        $message = $reply->getMessage();
+        $user = $reply->getUser();
+
         return $this->response->success([
             'user' => $user,
-            'method' => $method,
-            'message' => 'Hello Hyperf.',
+            'message' => $message,
         ]);
     }
 }
