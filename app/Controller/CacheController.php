@@ -26,4 +26,11 @@ class CacheController extends Controller
             di()->get(UserService::class)->first($user)
         );
     }
+
+    public function test()
+    {
+        return $this->response->success(
+            di()->get(UserService::class)->test('id_name'),
+        );
+    }
 }

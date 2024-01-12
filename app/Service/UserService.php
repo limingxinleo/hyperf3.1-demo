@@ -27,4 +27,10 @@ class UserService extends Service
             'uniqid' => uniqid(),
         ];
     }
+
+    #[Cacheable(prefix: 'test')]
+    public function test(string $id): string
+    {
+        return sprintf('%s:%s', $id, uniqid());
+    }
 }
