@@ -44,7 +44,9 @@
         "hyperf/process": "3.1.*",
         "hyperf/redis": "3.1.*",
         "hyperf/server": "3.1.*",
-        "hyperf/utils": "3.1.*"
+        "hyperf/swagger": "3.1.*",
+        "hyperf/utils": "3.1.*",
+        "hyperf/validation": "3.1.*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
