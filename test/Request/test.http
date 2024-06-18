@@ -1,0 +1,7 @@
+GRAPHQL http://127.0.0.1:9501/graphql
+
+query {
+    product(id: 1) {
+        name
+    }
+}

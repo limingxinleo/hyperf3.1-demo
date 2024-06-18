@@ -19,7 +19,8 @@ return [
         'handler' => [
             'class' => StreamHandler::class,
             'constructor' => [
-                'stream' => BASE_PATH . '/runtime/logs/hyperf.log',
+                // 'stream' => BASE_PATH . '/runtime/logs/hyperf.log',
+                'stream' => 'php://output',
                 'level' => Level::Info,
             ],
         ],
