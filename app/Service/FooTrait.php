@@ -12,17 +12,10 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use Hyperf\Di\Annotation\Inject;
-use Psr\Container\ContainerInterface;
-
-class FooService
+trait FooTrait
 {
-    use FooTrait;
-
-    #[Inject]
-    public ContainerInterface $container;
-
-    public function __construct(public BarService $service)
+    public function getTraitValue(): int
     {
+        return 1;
     }
 }
