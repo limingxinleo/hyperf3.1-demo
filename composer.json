@@ -19,6 +19,7 @@
         "ext-pdo_mysql": "*",
         "ext-redis": "*",
         "ext-swoole": ">=5.0",
+        "gemini/elastic-bool-query": "^0.2",
         "hyperf/async-queue": "3.1.*",
         "hyperf/cache": "3.1.*",
         "hyperf/command": "3.1.*",
@@ -71,7 +72,10 @@
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
     "extra": [],
     "scripts": {
