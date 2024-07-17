@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 use Hyperf\Contract\ApplicationInterface;
 use Hyperf\Di\ClassLoader;
+use Hyperf\Di\ScanHandler\ProcScanHandler;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application;
 
@@ -22,13 +23,12 @@ error_reporting(E_ALL);
 date_default_timezone_set('Asia/Shanghai');
 
 ! defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
-! defined('SWOOLE_HOOK_FLAGS') && define('SWOOLE_HOOK_FLAGS', SWOOLE_HOOK_ALL);
 
 require BASE_PATH . '/vendor/autoload.php';
 
 // Self-called anonymous function that creates its own scope and keep the global namespace clean.
 (function () {
-    ClassLoader::init();
+    ClassLoader::init(handler: new ProcScanHandler());
     /** @var ContainerInterface $container */
     $container = require BASE_PATH . '/config/container.php';
     /** @var Application $application */

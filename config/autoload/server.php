@@ -9,25 +9,23 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-use Hyperf\Engine\Constant\SocketType;
 use Hyperf\Framework\Bootstrap\PipeMessageCallback;
 use Hyperf\Framework\Bootstrap\ServerStartCallback;
 use Hyperf\Framework\Bootstrap\WorkerExitCallback;
 use Hyperf\Framework\Bootstrap\WorkerStartCallback;
-use Hyperf\Server\CoroutineServer;
 use Hyperf\Server\Event;
 use Hyperf\Server\Server;
+use Hyperf\Server\SwowServer;
 
 return [
     'mode' => SWOOLE_BASE,
-    'type' => CoroutineServer::class,
+    'type' => SwowServer::class,
     'servers' => [
         [
             'name' => 'http',
             'type' => Server::SERVER_HTTP,
             'host' => '0.0.0.0',
             'port' => 9501,
-            'sock_type' => SocketType::TCP,
             'callbacks' => [
                 Event::ON_REQUEST => [Hyperf\HttpServer\Server::class, 'onRequest'],
             ],
@@ -37,7 +35,6 @@ return [
             'type' => Server::SERVER_WEBSOCKET,
             'host' => '0.0.0.0',
             'port' => 9502,
-            'sock_type' => SWOOLE_SOCK_TCP,
             'callbacks' => [
                 Event::ON_HAND_SHAKE => [Hyperf\WebSocketServer\Server::class, 'onHandShake'],
                 Event::ON_MESSAGE => [Hyperf\WebSocketServer\Server::class, 'onMessage'],

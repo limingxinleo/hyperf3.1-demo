@@ -23,7 +23,6 @@ This file is part of Hyperf.
 EOF;
 
 return (new Config())
-    ->setParallelConfig(new ParallelConfig(swoole_cpu_num(), 20))
     ->setRiskyAllowed(true)
     ->setRules([
         '@PSR2' => true,

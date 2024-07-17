@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Hyperf\Codec\Json;
 use Hyperf\SocketIOServer\Annotation\Event;
 use Hyperf\SocketIOServer\Annotation\SocketIONamespace;
 use Hyperf\SocketIOServer\BaseNamespace;
 use Hyperf\SocketIOServer\Socket;
-use Hyperf\Codec\Json;
 
 #[SocketIONamespace('/')]
 class WebSocketController extends BaseNamespace
