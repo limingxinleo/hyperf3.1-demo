@@ -13,6 +13,8 @@ use App\Kernel\Event\EventDispatcherFactory;
 use App\Kernel\Http\WorkerStartListener;
 use App\Kernel\Log\LoggerFactory;
 use Hyperf\Contract\StdoutLoggerInterface;
+use Hyperf\Crontab\Strategy\CoroutineStrategy;
+use Hyperf\Crontab\Strategy\StrategyInterface;
 use Hyperf\Server\Listener\AfterWorkerStartListener;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
@@ -20,4 +22,5 @@ return [
     StdoutLoggerInterface::class => LoggerFactory::class,
     AfterWorkerStartListener::class => WorkerStartListener::class,
     EventDispatcherInterface::class => EventDispatcherFactory::class,
+    StrategyInterface::class => CoroutineStrategy::class,
 ];
